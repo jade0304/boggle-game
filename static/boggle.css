@@ -1,0 +1,23 @@
+.board {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+  }
+
+.msg {
+  padding: 1em;
+}
+
+.msg .ok {
+    color: white;
+    background-color: rgb(0, 255, 128);
+    padding: 10px;
+}  
+
+.msg .error {
+  color: white;
+  background-color: red;
+  padding: 10px;
+}  

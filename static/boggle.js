@@ -6,7 +6,7 @@ class BoggleGame {
 
         this.score = 0
         this.words = new Set(); 
-        this.board = $("#", boardId)
+        this.board = $("#" + boardId)
 
         this.timer = setInterval(this.countDown.bind(this), 1000);
 
@@ -26,7 +26,7 @@ class BoggleGame {
         $('.msg', this.board)
         .text(msg)
         .removeClass()
-        .addClass(`msg, ${cls}`);
+        .addClass(`msg ${cls}`);
     }
 
 
@@ -38,7 +38,7 @@ class BoggleGame {
         if (!word) return
 
         if (this.words.has(word)) {
-            this.message(`Already found ${word}`, 'err')
+            this.message(`Already found ${word}`, 'error')
             return;
         }
 
@@ -50,20 +50,24 @@ class BoggleGame {
     } else {
         this.showListOfWords(word);
         this.score += word.length;
-        this.words.add(word)
-        this.message(`Added: ${word}`, 'ok')
+        this.score();
+        this.words.add(word);
+        this.message(`Added: ${word}`, 'ok');
     }
-
+console.log(this.message(`Added: ${word}`, 'ok'))
     $word.val("").focus();
 }
 
 
 showTimer(){ 
-    $(".timer", this.board).text(this.secs);
+    let $timer = $(".timer", this.board)
+    $timer.text(this.secs);
+    console.log($timer)
+    console.log(this.secs)
 }
 
 async countDown(){
-
+    console.log(this.secs)
     this.secs -= 1;
     this.showTimer();
     

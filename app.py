@@ -20,9 +20,7 @@ def homepage():
     highscore = session.get("highscore", 0)
     nplays = session.get("nplays", 0)
 
-    return render_template("index.html", board=board,
-                           highscore=highscore,
-                           nplays=nplays)
+    return render_template("index.html", board=board, highscore=highscore, num_plays=nplays)
 
 
 @app.route("/check-word")
